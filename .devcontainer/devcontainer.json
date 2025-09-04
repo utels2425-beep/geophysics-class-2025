@@ -1,0 +1,55 @@
+// 如需格式、屬性和值的說明，請參閱 devcontainer.json 參考文件：
+// https://code.visualstudio.com/docs/remote/devcontainerjson-reference
+{
+	// --- 環境名稱 ---
+	// 這個名稱會顯示在 VS Code 介面中
+	"name": "Python 3.10 for Geophysics (with Web Apps)",
+
+	// --- 基礎環境設定 ---
+	// 指定要使用的預建開發容器映像檔。
+	// 這裡是使用 Microsoft 官方提供的 Python 3.10 (基於 Debian Bullseye) 映像檔。
+	"image": "mcr.microsoft.com/devcontainers/python:3.10-bullseye",
+
+	// --- 客製化設定 ---
+	"customizations": {
+		// 設定 VS Code 編輯器的屬性
+		"vscode": {
+			// 推薦並自動安裝的 VS Code 擴充功能
+			"extensions": [
+				"ms-python.python",               // 官方 Python 擴充功能 (必備)
+				"ms-toolsai.jupyter",             // Jupyter Notebook 支援 (必備)
+				"eamodio.gitlens",                // 增強 Git 版本控制的視覺化
+				"ms-python.isort",                // 自動排序 Python import
+				"davidanson.vscode-markdownlint"  // Markdown 語法檢查，適合撰寫報告
+			],
+			// 可以在這裡為所有使用者設定預設的 VS Code settings.json
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/local/bin/python",
+				"python.linting.pylintEnabled": true,
+				"python.linting.enabled": true,
+				"editor.formatOnSave": true, // 存檔時自動格式化
+				"[python]": {
+					"editor.defaultFormatter": "ms-python.autopep8"
+				}
+			}
+		}
+	},
+
+	// --- 生命週期指令 ---
+	// 'postCreateCommand'：在容器建立完成後，但在 VS Code 連線前執行的指令。
+	// 適合用來安裝課程所需的 Python 套件。
+	// 將 gradio 和 streamlit 加入安裝列表。
+	"postCreateCommand": "pip install --user obspy pygmt jupyterlab pandas matplotlib gradio streamlit",
+
+	// --- 網路設定 ---
+	// 'forwardPorts'：將容器內的連接埠轉發到本地電腦，以便從瀏覽器存取。
+	// - 8888 是 Jupyter Notebook/Lab 的預設埠。
+	// - 7860 是 Gradio 的預設埠。
+	// - 8501 是 Streamlit 的預設埠。
+	"forwardPorts": [8888, 7860, 8501],
+
+	// --- 安全性設定 ---
+	// 'remoteUser'：指定在容器中執行的使用者。
+	// 使用 'vscode' (非 root) 使用者是較安全的做法。
+	"remoteUser": "vscode"
+}
