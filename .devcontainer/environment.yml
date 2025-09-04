@@ -1,30 +1,23 @@
-# 這個檔案定義了我們希望 Conda 建立的環境
-# 名稱、頻道、依賴套件等都在此設定
-
-name: pygmt # (對應 conda create --name pygmt)
+name: pygmt
 
 channels:
-  # 設定 Conda 頻道的優先順序 (對應 conda config --prepend channels)
   - conda-forge
   - defaults
 
 dependencies:
-  # --- Conda 套件 ---
-  # 列出所有要用 Conda 安裝的套件
   - python=3.9
   - numpy
   - pandas
   - xarray
   - netcdf4
   - packaging
-  - gmt       # PyGMT 的核心依賴
+  - gmt
   - pygmt
   - obspy
   - jupyter
-  - pip       # 確保 pip 也被安裝在此環境中
+  - pip
+  - git-lfs  # <--- 在這裡新增這一行
 
-  # --- Pip 套件 ---
-  # 列出要在此 Conda 環境中，透過 pip 安裝的套件
   - pip:
     - streamlit
     - matplotlib
