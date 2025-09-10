@@ -1,0 +1,6 @@
+README.md
+README_PUSH_GIT.txt
+data
+hw
+notebooks
+qqq.txt
