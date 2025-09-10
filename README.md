@@ -7,6 +7,9 @@
 
 本課程的所有程式設計作業與實驗，都將在 **GitHub Codespaces** 這個強大的雲端開發環境中進行。你只需要一個網頁瀏覽器，就可以開始學習，完全不用在自己的電腦上安裝任何複雜的軟體！
 
+# 為了載入環境變數，剛進入codespace時請執行 ： source env.sh
+# 為了push更新到自己的repo，請執行 ： sh git_all.sh "comments"
+
 ## 🚀 為什麼我們使用 GitHub Codespaces？
 
   * 💻 **免安裝，零設定**：你不需要在自己的電腦上安裝 Python、Conda、ObsPy、PyGMT 等任何工具。所有需要的軟體都已經在雲端準備好了。
