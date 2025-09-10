@@ -24,7 +24,8 @@
 				"ms-python.python",
 				"ms-toolsai.jupyter",
 				"eamodio.gitlens",
-				"ms-python.isort"
+				"ms-python.isort",
+				"ms-vscode.vscode-websearchforcopilot"
 			]
 		}
 	},
